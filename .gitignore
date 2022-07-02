@@ -102,3 +102,7 @@ dist
 
 # TernJS port file
 .tern-port
+
+pdms-kpltest-certificate.crt
+pdms-kpltest-certificate.key.txt
+pdms-kpltest-certificate.key
