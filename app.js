@@ -17,9 +17,15 @@ passport.deserializeUser(function (user, done) {
 passport.use(new SamlStrategy(
   {
     path: '/pdms-saml',
-    entryPoint: 'https://login.microsoftonline.com/f074dbeb-1cc3-4857-a3ba-17253091f5d3/saml2',
+    // 登录多个账号时，不加 prompt=select_account 会报 AADSTS16000 错误
+    // 只登录了一个账号时，加 prompt=select_account 也没用
+    entryPoint: 'https://login.microsoftonline.com/f074dbeb-1cc3-4857-a3ba-17253091f5d3/saml2?prompt=select_account',
+    // forceAuthn: false, // 这个参数有用
+    // IsPassive: false, // 没用
+    // passive: false, // 没有用
     issuer: 'pdms-saml',
     cert: fs.readFileSync('PDMS-SAML.cer', 'utf-8'),
+    // additionalParams: {'IsPassive':'true'}, // 这个是加到 entryPoint 的 query string 里面
     signatureAlgorithm: 'sha256'
   },
   function (profile, done) {
@@ -72,7 +78,7 @@ app.post('/pdms-saml',
     failureFlash: true
   }),
   function (req, res) {
-    console.log(req);
+    // console.log(req);
     res.redirect('/');
   }
 );
