@@ -2,4 +2,12 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  p Hello world!
+  - if(!username) {
+    h2 #{'Not logged in'}
+    p
+    a(href="/login") login
+  - } else {
+    h2 #{'Hello, '+username}
+    p #{'email: '+mail }
+  - }

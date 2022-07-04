@@ -1,9 +1,13 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const title = 'AAD SAML Demo';
 
-/* GET home page. */
+
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  if(req.isAuthenticated())
+    res.render('index', { title, username: req.user.displayName, mail: req.user.email });
+  else
+    res.render('index', { title, username: null});
 });
 
 module.exports = router;
