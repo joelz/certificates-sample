@@ -16,6 +16,9 @@ passport.deserializeUser(function (user, done) {
 });
 passport.use(new SamlStrategy(
   {
+    // 部署到了 https://aad-saml.glitch.me/
+    // 需要加上这句 protocol
+    // protocol: 'https',
     path: '/pdms-saml',
     // 登录多个账号时，不加 prompt=select_account 会报 AADSTS16000 错误
     // 只登录了一个账号时，加 prompt=select_account 也没用
