@@ -106,3 +106,12 @@ dist
 pdms-kpltest-certificate.crt
 pdms-kpltest-certificate.key.txt
 pdms-kpltest-certificate.key
+keytop-kpltest-certificate.crt
+keytop-kpltest-certificate.txt
+keytop-kpltest-certificate.key
+mysoft-kpltest-certificate.crt
+mysoft-kpltest-certificate.txt
+mysoft-kpltest-certificate.key
+ams-kerryprops.crt
+ams-kerryprops.txt
+ams-kerryprops.key
