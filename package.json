@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "manage-subscription": "node subscription-manager.js"
   },
   "dependencies": {
+    "@azure/msal-node": "^2.6.0",
+    "axios": "^1.6.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
